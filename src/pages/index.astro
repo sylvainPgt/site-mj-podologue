@@ -6,6 +6,8 @@ const contact = {
 	job: 'Pédicure-podologue D.E.',
 	phoneDisplay: '06 47 09 86 22',
 	phoneHref: 'tel:+33647098622',
+	doctolibHref:
+		'https://www.doctolib.fr/pedicure-podologue/toulouse/marie-julie-castelle/booking/motives?source=profile',
 	email: 'castellepodologue@gmail.com',
 	addressLine1: '20 place Occitane',
 	addressLine2: '31000 Toulouse',
@@ -44,6 +46,21 @@ const consultationItems = [
 	'Du lundi au vendredi, de 8h à 20h',
 	'Cabinet situé au centre-ville de Toulouse',
 ];
+
+const primaryCtaClass =
+	'inline-flex items-center justify-center rounded-full bg-[#cb5b75] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#b24a63] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
+
+const secondaryCtaClass =
+	'inline-flex items-center justify-center rounded-full border border-[#d7b2bc] bg-white px-6 py-3.5 text-sm font-semibold text-[#473640] transition hover:border-[#cb5b75] hover:text-[#cb5b75] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
+
+const headerLinkClass =
+	'inline-flex items-center rounded-full border border-[#ead1d9] bg-white px-4 py-2 text-sm font-medium text-[#5d4953] transition hover:border-[#cb5b75] hover:text-[#cb5b75] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
+
+const infoLinkClass =
+	'font-medium text-[#3f2f37] underline decoration-[#d7b2bc] underline-offset-4 transition hover:text-[#cb5b75] hover:decoration-[#cb5b75] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
+
+const infoLinkLargeClass =
+	'font-semibold text-[#3f2f37] underline decoration-[#d7b2bc] underline-offset-4 transition hover:text-[#cb5b75] hover:decoration-[#cb5b75] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
 ---
 
 <Layout
@@ -63,7 +80,7 @@ const consultationItems = [
 							<p class="mt-1 text-lg font-semibold text-[#3f2f37]">{contact.name}</p>
 						</div>
 					</div>
-					<a href={contact.phoneHref} class="text-sm font-medium text-[#5d4953] transition hover:text-[#cb5b75]">
+					<a href={contact.phoneHref} class={headerLinkClass}>
 						Téléphone : {contact.phoneDisplay}
 					</a>
 				</header>
@@ -81,18 +98,18 @@ const consultationItems = [
 
 						<div class="mt-8 flex flex-col gap-4 sm:flex-row">
 							<a
-								href={contact.phoneHref}
-								class="inline-flex items-center justify-center rounded-full bg-[#cb5b75] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#b24a63]"
-							>
-								Appeler le cabinet
-							</a>
-							<a
-								href="https://maps.google.com/?q=20+place+Occitane+31000+Toulouse"
+								href={contact.doctolibHref}
 								target="_blank"
 								rel="noreferrer"
-								class="inline-flex items-center justify-center rounded-full border border-[#d7b2bc] bg-white px-6 py-3.5 text-sm font-semibold text-[#473640] transition hover:border-[#cb5b75] hover:text-[#cb5b75]"
+								class={primaryCtaClass}
 							>
-								Ouvrir l’itinéraire
+								Prendre rendez-vous
+							</a>
+							<a
+								href={contact.phoneHref}
+								class={secondaryCtaClass}
+							>
+								Appeler le cabinet
 							</a>
 						</div>
 					</div>
@@ -159,15 +176,35 @@ const consultationItems = [
 
 					<div class="mt-8 rounded-[1.75rem] border border-[#ebd4db] bg-white p-6">
 						<p class="text-sm font-medium text-[#9d6070]">Téléphone</p>
-						<a href={contact.phoneHref} class="mt-2 block text-2xl font-semibold text-[#3f2f37] transition hover:text-[#cb5b75]">
+						<a href={contact.phoneHref} class={`mt-2 block text-2xl ${infoLinkLargeClass}`}>
 							{contact.phoneDisplay}
 						</a>
 						<p class="mt-2 text-sm text-[#65525b]">{contact.hours}</p>
 					</div>
 				</div>
 
-				<div class="relative overflow-hidden rounded-[2.25rem] bg-[#cb5b75] shadow-[0_28px_80px_rgba(135,72,93,0.18)]">
-					<img src="/images/logo-foot-left.png" alt="Empreinte stylisée du logo" class="h-full w-full object-cover" />
+				<div class="overflow-hidden rounded-[2.25rem] border border-[#ead1d9] bg-white p-3 shadow-[0_28px_80px_rgba(135,72,93,0.12)]">
+					<iframe
+						title="Carte du cabinet de Marie-Julie Castelle à Toulouse"
+						src="https://www.google.com/maps?q=20+place+Occitane+31000+Toulouse&output=embed"
+						class="h-[360px] w-full rounded-[1.5rem] border-0"
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+					<div class="px-2 pb-2 pt-5">
+						<p class="text-sm font-medium text-[#9d6070]">Accès</p>
+						<p class="mt-2 text-base leading-7 text-[#5f4b55]">
+							{contact.addressLine1}, {contact.addressLine2}. {contact.access}.
+						</p>
+						<a
+							href="https://www.google.com/maps/search/?api=1&query=20+place+Occitane+31000+Toulouse"
+							target="_blank"
+							rel="noreferrer"
+							class={`${secondaryCtaClass} mt-5`}
+						>
+							Ouvrir l’itinéraire
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -190,14 +227,25 @@ const consultationItems = [
 					<div class="mt-6 space-y-5 text-[#5f4b55]">
 						<div>
 							<p class="text-sm font-medium text-[#9d6070]">Téléphone</p>
-							<a href={contact.phoneHref} class="mt-1 block text-xl font-semibold text-[#3f2f37] transition hover:text-[#cb5b75]">
+							<a href={contact.phoneHref} class={`mt-1 block text-xl ${infoLinkLargeClass}`}>
 								{contact.phoneDisplay}
 							</a>
 						</div>
 						<div>
 							<p class="text-sm font-medium text-[#9d6070]">E-mail</p>
-							<a href={`mailto:${contact.email}`} class="mt-1 block text-base text-[#3f2f37] transition hover:text-[#cb5b75]">
+							<a href={`mailto:${contact.email}`} class={`mt-1 block text-base ${infoLinkClass}`}>
 								{contact.email}
+							</a>
+						</div>
+						<div>
+							<p class="text-sm font-medium text-[#9d6070]">Rendez-vous</p>
+							<a
+								href={contact.doctolibHref}
+								target="_blank"
+								rel="noreferrer"
+								class={`mt-1 block text-base ${infoLinkClass}`}
+							>
+								Prendre rendez-vous sur Doctolib
 							</a>
 						</div>
 						<div>
