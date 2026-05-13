@@ -178,44 +178,44 @@ const infoLinkLargeClass =
 						))}
 					</ul>
 
-					<div class="mt-8 grid gap-4 sm:grid-cols-2">
-						<div class="rounded-[1.75rem] border border-[#ebd4db] bg-white p-6">
+					<div class="mt-8 max-w-xl rounded-[2rem] border border-[#e7cad3] bg-[#fffafb] p-7 shadow-[0_20px_55px_rgba(135,72,93,0.08)]">
 							<p class="text-sm font-medium text-[#9d6070]">Contact</p>
 							<a href={contact.phoneHref} class={`mt-2 block text-2xl ${infoLinkLargeClass}`}>
 								{contact.phoneDisplay}
 							</a>
 							<p class="mt-2 text-sm text-[#65525b]">Du lundi au vendredi, de 8h à 20h.</p>
-							<div class="mt-4">
-								<p class="text-sm font-medium text-[#9d6070]">E-mail</p>
-								<a href={`mailto:${contact.email}`} class={`mt-1 block text-base ${infoLinkClass}`}>
-									{contact.email}
-								</a>
+							<div class="mt-6 grid gap-5 sm:grid-cols-2">
+								<div>
+									<p class="text-sm font-medium text-[#9d6070]">E-mail</p>
+									<a href={`mailto:${contact.email}`} class={`mt-1 block text-base ${infoLinkClass}`}>
+										{contact.email}
+									</a>
+								</div>
+								<div>
+									<p class="text-sm font-medium text-[#9d6070]">Rendez-vous</p>
+									<a
+										href={contact.doctolibHref}
+										target="_blank"
+										rel="noreferrer"
+										class={`mt-1 block text-base ${infoLinkClass}`}
+									>
+										Prendre rendez-vous en ligne sur Doctolib
+									</a>
+								</div>
 							</div>
-							<div class="mt-4">
-								<p class="text-sm font-medium text-[#9d6070]">Rendez-vous</p>
-								<a
-									href={contact.doctolibHref}
-									target="_blank"
-									rel="noreferrer"
-									class={`mt-1 block text-base ${infoLinkClass}`}
-								>
-									Prendre rendez-vous en ligne sur Doctolib
-								</a>
-							</div>
-						</div>
-
-						<div class="rounded-[1.75rem] border border-[#ebd4db] bg-white p-6">
-							<p class="text-sm font-medium text-[#9d6070]">Adresse et accès</p>
-							<p class="mt-2 text-base leading-7 text-[#5f4b55]">
-								Le cabinet est situé au {contact.addressLine1}, {contact.addressLine2}, sur la place Occitane, au-dessus du centre
-								commercial Saint-Georges, en plein centre-ville de Toulouse.
-							</p>
-							<p class="mt-3 text-base leading-7 text-[#5f4b55]">{contact.access}.</p>
-						</div>
+					</div>
 					</div>
 				</div>
 
 				<div class="overflow-hidden rounded-[2.25rem] border border-[#ead1d9] bg-white p-3 shadow-[0_28px_80px_rgba(135,72,93,0.12)]">
+					<div class="px-3 pb-4 pt-3">
+						<p class="text-sm font-medium text-[#9d6070]">Adresse et accès</p>
+						<p class="mt-2 text-base leading-7 text-[#5f4b55]">
+							Le cabinet est situé au {contact.addressLine1}, {contact.addressLine2}, sur la place Occitane, au-dessus du centre
+							commercial Saint-Georges, en plein centre-ville de Toulouse.
+						</p>
+						<p class="mt-3 text-base leading-7 text-[#5f4b55]">{contact.access}.</p>
+					</div>
 					<iframe
 						title="Carte du cabinet de Marie-Julie Castelle à Toulouse"
 						src="https://www.google.com/maps?q=20+place+Occitane+31000+Toulouse&output=embed"
@@ -225,7 +225,6 @@ const infoLinkLargeClass =
 					></iframe>
 					<div class="px-2 pb-2 pt-5">
 						<p class="text-sm font-medium text-[#9d6070]">Plan d'accès</p>
-						<p class="mt-2 text-base leading-7 text-[#5f4b55]">{contact.addressLine1}, {contact.addressLine2}</p>
 						<a
 							href="https://www.google.com/maps/search/?api=1&query=20+place+Occitane+31000+Toulouse"
 							target="_blank"
