@@ -1,23 +1,30 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Marie-Julie Castelle | Pedicure podologue a Toulouse',
+	description = "Cabinet de pedicurie-podologie a Toulouse centre. Consultations sur rendez-vous, soins au cabinet et a domicile, semelles orthopediques.",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#cb5b75" />
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen bg-[#fffaf8] text-[#473640] antialiased">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

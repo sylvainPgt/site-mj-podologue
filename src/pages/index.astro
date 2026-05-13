@@ -1,11 +1,299 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const contact = {
+	name: 'Marie-Julie Castelle',
+	job: 'Pédicure-podologue D.E.',
+	phoneDisplay: '06 47 09 86 22',
+	phoneHref: 'tel:+33647098622',
+	email: 'castellepodologue@gmail.com',
+	addressLine1: '20 place Occitane',
+	addressLine2: '31000 Toulouse',
+	access: 'Métro Jean Jaurès, au-dessus du centre commercial Saint-Georges',
+	hours: 'Du lundi au vendredi, de 8h à 20h',
+};
+
+const highlights = [
+	'Sur rendez-vous',
+	'Soins au cabinet et à domicile',
+	'Semelles orthopédiques',
+];
+
+const services = [
+	{
+		title: 'Soins de pédicurie',
+		description:
+			'Une prise en charge attentive pour retrouver du confort au quotidien et préserver la santé de vos pieds.',
+	},
+	{
+		title: 'Podologie et semelles orthopédiques',
+		description:
+			'Des solutions adaptées à vos besoins pour accompagner l’appui, la marche et le soulagement durable.',
+	},
+	{
+		title: 'Consultations au cabinet ou à domicile',
+		description:
+			'Un accompagnement souple et accessible, pensé pour s’adapter à votre rythme et à votre situation.',
+	},
+];
+
+const approach = [
+	'Écouter votre gêne, votre rythme de vie et vos habitudes avant de proposer le soin le plus adapté.',
+	'Apporter une réponse concrète, rassurante et progressive, avec une attention particulière au confort durable.',
+	'Faciliter le suivi grâce à un cabinet central à Toulouse et la possibilité de soins à domicile.',
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Marie-Julie Castelle | Pédicure-podologue à Toulouse"
+	description="Cabinet de pédicurie-podologie à Toulouse centre. Soins au cabinet et à domicile, semelles orthopédiques, sur rendez-vous."
+>
+	<main class="overflow-hidden">
+		<section class="relative isolate bg-[linear-gradient(180deg,#fff9f9_0%,#fdf1f3_55%,#fffaf8_100%)]">
+			<div class="absolute inset-x-0 top-0 -z-10 h-72 bg-[radial-gradient(circle_at_top,#eab7c4_0%,transparent_60%)]"></div>
+			<div class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+				<header class="flex flex-col gap-4 rounded-full border border-white/70 bg-white/70 px-5 py-4 shadow-[0_20px_60px_rgba(135,72,93,0.08)] backdrop-blur md:flex-row md:items-center md:justify-between">
+					<div class="flex items-center gap-4">
+						<div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#cb5b75] text-lg font-semibold text-white">
+							MJ
+						</div>
+						<div>
+							<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Cabinet de pédicurie-podologie</p>
+							<p class="text-lg font-semibold text-[#473640]">{contact.name}</p>
+						</div>
+					</div>
+					<div class="flex flex-col gap-3 sm:flex-row">
+						<a
+							href={contact.phoneHref}
+							class="inline-flex items-center justify-center rounded-full bg-[#cb5b75] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#b24a63]"
+						>
+							Appeler le cabinet
+						</a>
+						<a
+							href="#contact"
+							class="inline-flex items-center justify-center rounded-full border border-[#d7b2bc] bg-white px-5 py-3 text-sm font-semibold text-[#473640] transition hover:border-[#cb5b75] hover:text-[#cb5b75]"
+						>
+							Infos pratiques
+						</a>
+					</div>
+				</header>
+
+				<div class="grid gap-12 pb-20 pt-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pt-16">
+					<div>
+						<p class="inline-flex rounded-full border border-[#e8c5cf] bg-white px-4 py-2 text-sm font-medium text-[#9e5669] shadow-sm">
+							Toulouse centre • sur rendez-vous
+						</p>
+						<h1 class="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-[#3f2f37] sm:text-6xl">
+							Des soins de pédicurie-podologie pensés pour votre confort.
+						</h1>
+						<p class="mt-6 max-w-2xl text-lg leading-8 text-[#6b5560]">
+							Le cabinet de {contact.name}, {contact.job.toLowerCase()}, vous accueille au {contact.addressLine1}, en plein centre de Toulouse.
+							Une approche douce, attentive et rassurante pour des soins au cabinet, à domicile et un accompagnement en
+							semelles orthopédiques.
+						</p>
+
+						<div class="mt-8 flex flex-wrap gap-3">
+							{highlights.map((item) => (
+								<span class="rounded-full bg-[#f5dde4] px-4 py-2 text-sm font-medium text-[#8e4b5e]">{item}</span>
+							))}
+						</div>
+
+						<div class="mt-10 flex flex-col gap-4 sm:flex-row">
+							<a
+								href={contact.phoneHref}
+								class="inline-flex items-center justify-center rounded-full bg-[#3f2f37] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#2f2329]"
+							>
+								{contact.phoneDisplay}
+							</a>
+							<a
+								href={`mailto:${contact.email}`}
+								class="inline-flex items-center justify-center rounded-full border border-[#d9b1bd] bg-white px-6 py-3.5 text-sm font-semibold text-[#473640] transition hover:border-[#cb5b75] hover:text-[#cb5b75]"
+							>
+								Envoyer un e-mail
+							</a>
+						</div>
+
+						<div class="mt-12 grid gap-4 sm:grid-cols-3">
+							<div class="rounded-[1.75rem] border border-white bg-white/80 p-5 shadow-[0_24px_60px_rgba(135,72,93,0.08)]">
+								<p class="text-sm font-medium text-[#9d6070]">Horaires</p>
+								<p class="mt-2 text-base font-semibold text-[#3f2f37]">{contact.hours}</p>
+							</div>
+							<div class="rounded-[1.75rem] border border-white bg-white/80 p-5 shadow-[0_24px_60px_rgba(135,72,93,0.08)]">
+								<p class="text-sm font-medium text-[#9d6070]">Adresse</p>
+								<p class="mt-2 text-base font-semibold text-[#3f2f37]">{contact.addressLine1}</p>
+								<p class="text-sm text-[#6b5560]">{contact.addressLine2}</p>
+							</div>
+							<div class="rounded-[1.75rem] border border-white bg-white/80 p-5 shadow-[0_24px_60px_rgba(135,72,93,0.08)]">
+								<p class="text-sm font-medium text-[#9d6070]">Accès</p>
+								<p class="mt-2 text-base font-semibold text-[#3f2f37]">Métro Jean Jaurès</p>
+								<p class="text-sm text-[#6b5560]">Centre-ville de Toulouse</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative">
+						<div class="absolute right-0 top-0 -z-10 h-64 w-64 rounded-full bg-[#efc6d1] blur-3xl"></div>
+						<div class="grid gap-4 md:grid-cols-[1.05fr_0.95fr]">
+							<div class="overflow-hidden rounded-[2rem] bg-[#cb5b75] shadow-[0_28px_80px_rgba(135,72,93,0.24)]">
+								<img
+									src="/images/logo-foot-right.png"
+									alt="Empreinte stylisée du logo du cabinet"
+									class="h-full w-full object-cover"
+								/>
+							</div>
+							<div class="flex flex-col gap-4">
+								<div class="overflow-hidden rounded-[2rem] border border-white/70 bg-white p-2 shadow-[0_28px_80px_rgba(135,72,93,0.12)]">
+									<img
+										src="/images/hero-foot.jpg"
+										alt="Photographie d'un pied pour illustrer les soins de pédicurie-podologie"
+										class="h-full min-h-64 w-full rounded-[1.5rem] object-cover"
+									/>
+								</div>
+								<div class="rounded-[2rem] bg-[#fff7f8] p-6 shadow-[0_28px_80px_rgba(135,72,93,0.1)] ring-1 ring-[#edd0d8]">
+									<p class="text-sm font-medium text-[#9d6070]">Le site actuel met en avant l’essentiel</p>
+									<p class="mt-3 text-lg font-semibold text-[#3f2f37]">
+										Prise de rendez-vous par téléphone, cabinet au centre-ville et soins au cabinet comme à domicile.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="soins" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="text-sm font-semibold tracking-[0.22em] text-[#cb5b75] uppercase">Les soins proposés</p>
+				<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">
+					Une page d’accueil recentrée sur la clarté, la confiance et l’accessibilité.
+				</h2>
+				<p class="mt-5 text-lg leading-8 text-[#6b5560]">
+					Le site d’origine repose sur une structure très directe : présentation du cabinet, horaires, plan d’accès et contact.
+					Cette nouvelle version conserve ces repères tout en leur donnant une lecture plus chaleureuse et plus contemporaine.
+				</p>
+			</div>
+
+			<div class="mt-10 grid gap-6 lg:grid-cols-3">
+				{services.map((service) => (
+					<article class="rounded-[2rem] border border-[#f0d9df] bg-white p-7 shadow-[0_24px_70px_rgba(135,72,93,0.08)]">
+						<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Service</p>
+						<h3 class="mt-4 text-2xl font-semibold text-[#3f2f37]">{service.title}</h3>
+						<p class="mt-4 leading-7 text-[#6b5560]">{service.description}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="bg-[#f9eef1]">
+			<div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:items-center">
+				<div>
+					<p class="text-sm font-semibold tracking-[0.22em] text-[#cb5b75] uppercase">Approche thérapeutique</p>
+					<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">
+						Une relation de soin simple, humaine et personnalisée.
+					</h2>
+					<p class="mt-5 max-w-2xl text-lg leading-8 text-[#6b5560]">
+						Le contenu du site suggère une approche concrète et rassurante : être facilement joignable, accueillir sur rendez-vous,
+						proposer des soins au cabinet ou à domicile, et répondre aux besoins fonctionnels avec des semelles orthopédiques lorsque
+						cela est indiqué.
+					</p>
+
+					<div class="mt-8 space-y-4">
+						{approach.map((item, index) => (
+							<div class="flex gap-4 rounded-[1.75rem] bg-white p-5 shadow-[0_18px_55px_rgba(135,72,93,0.08)]">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f5dde4] font-semibold text-[#a35367]">
+									{index + 1}
+								</div>
+								<p class="pt-1 leading-7 text-[#5f4a54]">{item}</p>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<div class="relative">
+					<div class="absolute -left-6 top-10 hidden h-40 w-40 rounded-full bg-[#efc6d1] blur-3xl lg:block"></div>
+					<div class="relative overflow-hidden rounded-[2.5rem] bg-[#cb5b75] shadow-[0_30px_90px_rgba(135,72,93,0.24)]">
+						<img
+							src="/images/logo-foot-left.png"
+							alt="Empreinte stylisée du logo, version gauche"
+							class="h-full w-full object-cover"
+						/>
+						<div class="absolute inset-x-6 bottom-6 rounded-[1.75rem] bg-white/92 p-6 backdrop-blur">
+							<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Repères clés</p>
+							<ul class="mt-3 space-y-2 text-sm leading-6 text-[#5f4a54]">
+								<li>Cabinet situé au 20 place Occitane, à Toulouse.</li>
+								<li>Consultations du lundi au vendredi de 8h à 20h.</li>
+								<li>Prise de rendez-vous prioritairement par téléphone.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+			<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+				<div class="rounded-[2.25rem] bg-[#3f2f37] p-8 text-white shadow-[0_28px_90px_rgba(63,47,55,0.24)]">
+					<p class="text-sm font-semibold tracking-[0.22em] text-[#f3cfd8] uppercase">Contact</p>
+					<h2 class="mt-4 text-3xl font-semibold">Prendre rendez-vous avec le cabinet</h2>
+					<p class="mt-4 max-w-md leading-7 text-[#f8e7ec]">
+						Pour un soin au cabinet ou à domicile, le contact le plus direct reste l’appel téléphonique. Vous pouvez aussi écrire
+						par e-mail pour une demande d’information.
+					</p>
+
+					<div class="mt-8 space-y-5">
+						<div>
+							<p class="text-sm text-[#f2cdd7]">Téléphone</p>
+							<a class="mt-1 block text-2xl font-semibold text-white" href={contact.phoneHref}>{contact.phoneDisplay}</a>
+						</div>
+						<div>
+							<p class="text-sm text-[#f2cdd7]">E-mail</p>
+							<a class="mt-1 block text-lg font-medium text-white" href={`mailto:${contact.email}`}>{contact.email}</a>
+						</div>
+						<div>
+							<p class="text-sm text-[#f2cdd7]">Adresse</p>
+							<p class="mt-1 text-lg font-medium text-white">{contact.addressLine1}</p>
+							<p class="text-[#f8e7ec]">{contact.addressLine2}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="rounded-[2.25rem] border border-[#f0d8df] bg-white p-8 shadow-[0_24px_70px_rgba(135,72,93,0.08)]">
+					<p class="text-sm font-semibold tracking-[0.22em] text-[#cb5b75] uppercase">Informations pratiques</p>
+					<div class="mt-6 grid gap-6 md:grid-cols-2">
+						<div class="rounded-[1.75rem] bg-[#fff5f7] p-6">
+							<h3 class="text-xl font-semibold text-[#3f2f37]">Accès</h3>
+							<p class="mt-3 leading-7 text-[#64505a]">
+								Le cabinet se situe sur la place Occitane, au-dessus du centre commercial Saint-Georges, dans le centre-ville
+								de Toulouse.
+							</p>
+							<p class="mt-3 text-sm font-medium text-[#9d6070]">{contact.access}</p>
+						</div>
+						<div class="rounded-[1.75rem] bg-[#fff5f7] p-6">
+							<h3 class="text-xl font-semibold text-[#3f2f37]">Horaires</h3>
+							<p class="mt-3 leading-7 text-[#64505a]">{contact.hours}</p>
+							<p class="mt-3 text-sm font-medium text-[#9d6070]">Soins au cabinet et à domicile.</p>
+						</div>
+					</div>
+
+					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
+						<a
+							href="https://maps.google.com/?q=20+place+Occitane+31000+Toulouse"
+							target="_blank"
+							rel="noreferrer"
+							class="inline-flex items-center justify-center rounded-full bg-[#cb5b75] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#b24a63]"
+						>
+							Ouvrir l’itinéraire
+						</a>
+						<a
+							href={contact.phoneHref}
+							class="inline-flex items-center justify-center rounded-full border border-[#d9b1bd] px-6 py-3.5 text-sm font-semibold text-[#473640] transition hover:border-[#cb5b75] hover:text-[#cb5b75]"
+						>
+							Appeler maintenant
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
