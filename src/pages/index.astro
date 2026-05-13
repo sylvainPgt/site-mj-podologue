@@ -24,17 +24,17 @@ const keyInfos = [
 	{
 		label: 'Horaires',
 		title: 'Lundi au vendredi',
-		text: 'De 8h à 20h.',
+		text: 'Consultations de 8h à 20h.',
 	},
 	{
 		label: 'Consultations',
 		title: 'Cabinet et domicile',
-		text: 'Sur rendez-vous.',
+		text: 'Accueil sur rendez-vous.',
 	},
 	{
 		label: 'Adresse',
 		title: `${contact.addressLine1}, ${contact.addressLine2}`,
-		text: 'Toulouse centre, métro Jean Jaurès.',
+		text: 'Toulouse centre, à proximité du métro Jean Jaurès.',
 	},
 ];
 
@@ -87,13 +87,13 @@ const infoLinkLargeClass =
 
 				<div class="grid gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-18">
 					<div>
-						<p class="text-base font-medium text-[#8e5969]">Cabinet de pédicurie-podologie à Toulouse</p>
+						<p class="text-base font-medium text-[#8e5969]">Cabinet de pédicurie-podologie à Toulouse centre</p>
 						<h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#3f2f37] sm:text-5xl">
 							Cabinet de pédicurie-podologie de {contact.name}
 						</h1>
 						<p class="mt-6 max-w-2xl text-lg leading-8 text-[#5f4b55]">
-							Soins de pédicurie, semelles orthopédiques, consultations au cabinet et à domicile. Le cabinet reçoit sur rendez-vous,
-							du lundi au vendredi de 8h à 20h.
+							Le cabinet assure des soins de pédicurie, la réalisation de semelles orthopédiques, ainsi que des consultations
+							au cabinet et à domicile. Les rendez-vous sont proposés du lundi au vendredi, de 8h à 20h.
 						</p>
 
 						<div class="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -144,8 +144,8 @@ const infoLinkLargeClass =
 					<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Prestations</p>
 					<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">Actes proposés</h2>
 					<p class="mt-5 max-w-xl leading-7 text-[#60505a]">
-						Le cabinet propose des soins de pédicurie, des semelles orthopédiques ainsi que des consultations au cabinet et à
-						domicile.
+						Le cabinet propose des soins de pédicurie, des semelles orthopédiques, ainsi que des consultations au cabinet et
+						à domicile.
 					</p>
 				</div>
 
@@ -179,7 +179,7 @@ const infoLinkLargeClass =
 						<a href={contact.phoneHref} class={`mt-2 block text-2xl ${infoLinkLargeClass}`}>
 							{contact.phoneDisplay}
 						</a>
-						<p class="mt-2 text-sm text-[#65525b]">{contact.hours}</p>
+						<p class="mt-2 text-sm text-[#65525b]">Du lundi au vendredi, de 8h à 20h.</p>
 					</div>
 				</div>
 
@@ -194,7 +194,8 @@ const infoLinkLargeClass =
 					<div class="px-2 pb-2 pt-5">
 						<p class="text-sm font-medium text-[#9d6070]">Accès</p>
 						<p class="mt-2 text-base leading-7 text-[#5f4b55]">
-							{contact.addressLine1}, {contact.addressLine2}. {contact.access}.
+							{contact.addressLine1}, {contact.addressLine2}. Cabinet situé sur la place Occitane, au-dessus du centre
+							commercial Saint-Georges.
 						</p>
 						<a
 							href="https://www.google.com/maps/search/?api=1&query=20+place+Occitane+31000+Toulouse"
@@ -215,8 +216,8 @@ const infoLinkLargeClass =
 					<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Localisation</p>
 					<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">Adresse et accès</h2>
 					<p class="mt-5 leading-7 text-[#5f4b55]">
-						Le cabinet se situe au {contact.addressLine1}, {contact.addressLine2}, sur la place Occitane, au-dessus du centre
-						commercial Saint-Georges.
+						Le cabinet est situé au {contact.addressLine1}, {contact.addressLine2}, sur la place Occitane, au-dessus du centre
+						commercial Saint-Georges, en plein centre-ville de Toulouse.
 					</p>
 					<p class="mt-4 leading-7 text-[#5f4b55]">{contact.access}.</p>
 				</div>
@@ -245,7 +246,7 @@ const infoLinkLargeClass =
 								rel="noreferrer"
 								class={`mt-1 block text-base ${infoLinkClass}`}
 							>
-								Prendre rendez-vous sur Doctolib
+								Prendre rendez-vous en ligne sur Doctolib
 							</a>
 						</div>
 						<div>
