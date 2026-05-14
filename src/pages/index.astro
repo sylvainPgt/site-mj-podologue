@@ -15,6 +15,13 @@ const contact = {
 	hours: 'Du lundi au vendredi, de 8h à 20h',
 };
 
+const healthCenter = {
+	name: 'Maison de Santé Pluriprofessionnelle Occitane',
+	logoSrc: '/images/msp-occitane.png',
+	description:
+		"Le cabinet fait partie de la Maison de Santé Pluriprofessionnelle Occitane, située place Occitane à Toulouse, dans un environnement de soins pluriprofessionnel au coeur du centre-ville.",
+};
+
 const keyInfos = [
 	{
 		label: 'Téléphone',
@@ -45,6 +52,57 @@ const consultationItems = [
 	'Soins à domicile',
 	'Du lundi au vendredi, de 8h à 20h',
 	'Cabinet situé au centre-ville de Toulouse',
+];
+
+const nationalDiplomas = [
+	{
+		year: '2025',
+		title: 'D.I.U. Posture Équilibre et Locomotion',
+		organization: 'Université Toulouse 3 - Paul Sabatier',
+	},
+];
+
+const continuingEducation = [
+	{
+		year: '2019',
+		title: 'Formation en K-Taping',
+		organization: 'Connaissance & Évolution',
+	},
+	{
+		year: '2019',
+		title: 'Diplôme de posturologie',
+		organization: 'Connaissance & Évolution',
+	},
+	{
+		year: '2017',
+		title: 'Formation en réflexologie',
+		organization: 'Luc Fournion - Cours et formations',
+	},
+	{
+		year: '2016',
+		title: 'Formation en orthoplastie',
+		organization: 'Connaissance & Évolution',
+	},
+	{
+		year: '2016',
+		title: 'Formation de thérapie manuelle',
+		organization: 'Institut de Formation aux Métiers du Sport et de la Santé (IFM2S)',
+	},
+	{
+		year: '2015',
+		title: 'Formation en thérapie manuelle',
+		organization: 'Institut de Formation aux Métiers du Sport et de la Santé (IFM2S)',
+	},
+	{
+		year: '2014',
+		title: 'Formation en K-Taping',
+		organization: 'Académie de K-Taping',
+	},
+	{
+		year: '2013',
+		title: 'Formation en K-Taping',
+		organization: 'Académie de K-Taping',
+	},
 ];
 
 const primaryCtaClass =
@@ -78,6 +136,7 @@ const infoLinkLargeClass =
 						<div>
 							<p class="text-sm font-medium tracking-[0.18em] text-[#a25569] uppercase">Cabinet de pédicurie-podologie</p>
 							<p class="mt-1 text-lg font-semibold text-[#3f2f37]">{contact.name}</p>
+							<p class="text-sm text-[#7a6670]">{contact.job}</p>
 						</div>
 					</div>
 					<a href={contact.phoneHref} class={headerLinkClass}>
@@ -93,7 +152,8 @@ const infoLinkLargeClass =
 						</h1>
 						<p class="mt-6 max-w-2xl text-lg leading-8 text-[#5f4b55]">
 							Le cabinet assure des soins de pédicurie, la réalisation de semelles orthopédiques, ainsi que des consultations
-							au cabinet et à domicile. Les rendez-vous sont proposés du lundi au vendredi, de 8h à 20h.
+							au cabinet et à domicile. Il exerce au sein de la Maison de Santé Pluriprofessionnelle Occitane. Les rendez-vous
+							sont proposés du lundi au vendredi, de 8h à 20h.
 						</p>
 
 						<div class="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -139,6 +199,26 @@ const infoLinkLargeClass =
 		</section>
 
 		<section class="mx-auto max-w-7xl px-6 py-18 lg:px-8">
+			<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+				<div>
+					<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Maison de santé</p>
+					<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">
+						Le cabinet exerce au sein de la {healthCenter.name}
+					</h2>
+					<p class="mt-5 max-w-2xl leading-8 text-[#5f4b55]">{healthCenter.description}</p>
+				</div>
+
+				<div class="overflow-hidden rounded-[2rem] border border-[#e7d7cd] bg-white p-6 shadow-[0_22px_60px_rgba(135,72,93,0.08)]">
+					<img
+						src={healthCenter.logoSrc}
+						alt="Logo de la Maison de Santé Pluriprofessionnelle Occitane"
+						class="w-full rounded-[1.5rem] object-contain"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-7xl px-6 py-18 lg:px-8">
 			<div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
 				<div>
 					<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Prestations</p>
@@ -156,6 +236,51 @@ const infoLinkLargeClass =
 							<h3 class="mt-3 text-xl font-semibold text-[#3f2f37]">{service}</h3>
 						</article>
 					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-[#fff7f8]">
+			<div class="mx-auto max-w-7xl px-6 py-18 lg:px-8">
+				<div class="max-w-3xl">
+					<p class="text-sm font-semibold tracking-[0.2em] text-[#cb5b75] uppercase">Parcours et formations</p>
+					<h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#3f2f37] sm:text-4xl">
+						Diplômes nationaux, universitaires et formations complémentaires
+					</h2>
+					<p class="mt-5 leading-8 text-[#5f4b55]">
+						Le parcours de formation de {contact.name} associe diplôme universitaire et formations complémentaires en posture,
+						locomotion, thérapie manuelle, orthoplastie, réflexologie, posturologie et K-Taping.
+					</p>
+				</div>
+
+				<div class="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+					<article class="rounded-[2rem] border border-[#ebd7dd] bg-white p-8 shadow-[0_20px_55px_rgba(135,72,93,0.08)]">
+						<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Diplômes nationaux et universitaires</p>
+						<div class="mt-6 space-y-5">
+							{nationalDiplomas.map((item) => (
+								<div class="rounded-[1.5rem] bg-[#fff7f8] p-5">
+									<p class="text-sm font-semibold text-[#a35a6d]">{item.year}</p>
+									<h3 class="mt-2 text-xl font-semibold text-[#3f2f37]">{item.title}</h3>
+									<p class="mt-2 leading-7 text-[#5f4b55]">{item.organization}</p>
+								</div>
+							))}
+						</div>
+					</article>
+
+					<article class="rounded-[2rem] border border-[#ebd7dd] bg-white p-8 shadow-[0_20px_55px_rgba(135,72,93,0.08)]">
+						<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Autres formations</p>
+						<div class="mt-6 space-y-4">
+							{continuingEducation.map((item) => (
+								<div class="flex gap-4 rounded-[1.5rem] bg-[#fff7f8] p-5">
+									<div class="min-w-14 text-sm font-semibold text-[#a35a6d]">{item.year}</div>
+									<div>
+										<h3 class="text-lg font-semibold text-[#3f2f37]">{item.title}</h3>
+										<p class="mt-1 leading-7 text-[#5f4b55]">{item.organization}</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</article>
 				</div>
 			</div>
 		</section>
