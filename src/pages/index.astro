@@ -105,6 +105,19 @@ const continuingEducation = [
 	},
 ];
 
+const trainingTimeline = [
+	...nationalDiplomas.map((item) => ({
+		...item,
+		category: 'Diplôme national et universitaire',
+		highlight: true,
+	})),
+	...continuingEducation.map((item) => ({
+		...item,
+		category: 'Formation complémentaire',
+		highlight: false,
+	})),
+];
+
 const primaryCtaClass =
 	'inline-flex items-center justify-center rounded-full bg-[#cb5b75] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#b24a63] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cb5b75] focus-visible:ring-offset-2';
 
@@ -180,7 +193,7 @@ const infoLinkLargeClass =
 							<img
 								src="/images/hero-foot.jpg"
 								alt="Photographie d'un pied"
-								class="h-full min-h-[320px] w-full rounded-[1.5rem] object-cover"
+								class="h-full min-h-[260px] w-full rounded-[1.5rem] object-cover sm:min-h-[320px]"
 							/>
 						</div>
 					</div>
@@ -253,34 +266,47 @@ const infoLinkLargeClass =
 					</p>
 				</div>
 
-				<div class="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-					<article class="rounded-[2rem] border border-[#ebd7dd] bg-white p-8 shadow-[0_20px_55px_rgba(135,72,93,0.08)]">
-						<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Diplômes nationaux et universitaires</p>
-						<div class="mt-6 space-y-5">
-							{nationalDiplomas.map((item) => (
-								<div class="rounded-[1.5rem] bg-[#fff7f8] p-5">
-									<p class="text-sm font-semibold text-[#a35a6d]">{item.year}</p>
-									<h3 class="mt-2 text-xl font-semibold text-[#3f2f37]">{item.title}</h3>
-									<p class="mt-2 leading-7 text-[#5f4b55]">{item.organization}</p>
-								</div>
-							))}
+				<div class="mt-10 rounded-[2rem] border border-[#ebd7dd] bg-white p-6 shadow-[0_20px_55px_rgba(135,72,93,0.08)] sm:p-8">
+					<div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+						<div>
+							<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Chronologie des formations</p>
+							<h3 class="mt-3 text-2xl font-semibold text-[#3f2f37]">Diplômes et formations complémentaires</h3>
 						</div>
-					</article>
+						<p class="text-sm text-[#7a6670]">Posture, locomotion, thérapie manuelle, orthoplastie, réflexologie, posturologie et K-Taping</p>
+					</div>
 
-					<article class="rounded-[2rem] border border-[#ebd7dd] bg-white p-8 shadow-[0_20px_55px_rgba(135,72,93,0.08)]">
-						<p class="text-sm font-semibold tracking-[0.18em] text-[#cb5b75] uppercase">Autres formations</p>
-						<div class="mt-6 space-y-4">
-							{continuingEducation.map((item) => (
-								<div class="flex gap-4 rounded-[1.5rem] bg-[#fff7f8] p-5">
-									<div class="min-w-14 text-sm font-semibold text-[#a35a6d]">{item.year}</div>
-									<div>
-										<h3 class="text-lg font-semibold text-[#3f2f37]">{item.title}</h3>
-										<p class="mt-1 leading-7 text-[#5f4b55]">{item.organization}</p>
+					<div class="relative mt-8 pl-8 sm:pl-10">
+						<div class="absolute bottom-0 left-[0.35rem] top-1 w-px bg-[#e7cad3] sm:left-[0.45rem]"></div>
+						<div class="space-y-5">
+							{trainingTimeline.map((item) => (
+								<article class="relative">
+									<div
+										class:list={[
+											'absolute left-[-1.72rem] top-2 h-4 w-4 rounded-full border-4 sm:left-[-2.23rem]',
+											item.highlight ? 'border-[#f4d6de] bg-[#cb5b75]' : 'border-[#f4d6de] bg-white',
+										]}
+									></div>
+									<div class="flex flex-col gap-3 md:grid md:grid-cols-[5.5rem_1fr] md:gap-5">
+										<div class="pt-1">
+											<p class="text-sm font-semibold tracking-[0.14em] text-[#a35a6d] uppercase">{item.year}</p>
+										</div>
+										<div
+											class:list={[
+												'rounded-[1.5rem] border p-5 shadow-[0_10px_30px_rgba(135,72,93,0.05)]',
+												item.highlight
+													? 'border-[#ecd6dd] bg-[#fff7f8] sm:p-6'
+													: 'border-[#f0dfe4] bg-white',
+											]}
+										>
+											<p class="text-xs font-semibold tracking-[0.16em] text-[#cb5b75] uppercase">{item.category}</p>
+											<h4 class="mt-3 text-lg font-semibold text-[#3f2f37] sm:text-xl">{item.title}</h4>
+											<p class="mt-2 leading-7 text-[#5f4b55]">{item.organization}</p>
+										</div>
 									</div>
-								</div>
+								</article>
 							))}
 						</div>
-					</article>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -343,7 +369,7 @@ const infoLinkLargeClass =
 					<iframe
 						title="Carte du cabinet de Marie-Julie Castelle à Toulouse"
 						src="https://www.google.com/maps?q=20+place+Occitane+31000+Toulouse&output=embed"
-						class="h-[360px] w-full rounded-[1.5rem] border-0"
+						class="h-[300px] w-full rounded-[1.5rem] border-0 sm:h-[360px]"
 						loading="lazy"
 						referrerpolicy="no-referrer-when-downgrade"
 					></iframe>
